@@ -2,6 +2,7 @@
  * For a detailed explanation regarding each configuration property, visit:
  * https://jestjs.io/docs/configuration
  */
+import path from 'path';
 
 const config = {
     // All imported modules in your tests should be mocked automatically
@@ -23,6 +24,12 @@ const config = {
     coveragePathIgnorePatterns: [
         '\\\\node_modules\\\\',
     ],
+
+    modulePaths: [
+        '<rootDir>src',
+    ],
+
+    setupFilesAfterEnv: ['<rootDir>config/jest/setupTests.ts'],
 
     // An array of directory names to be searched recursively up from the requiring module's location
     moduleDirectories: [
@@ -50,6 +57,11 @@ const config = {
 
     // The root directory that Jest should scan for tests and modules within
     rootDir: '../../',
+
+    moduleNameMapper: {
+        '\\.s?css$': 'identity-obj-proxy',
+        '\\.svg': path.resolve(__dirname, 'jestEmptyComponent.tsx'),
+    },
 
     // Indicates whether the coverage information should be collected while executing the test
     // collectCoverage: false,
