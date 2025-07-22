@@ -7,8 +7,8 @@ const MainPage = () => {
 
     return (
         <div>
-            <BugButton />
-            {t('Главная Страница')}
+            {/* <BugButton /> */}
+            {t('Главная страница')}
         </div>
     );
 };
