@@ -1,7 +1,7 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useState } from 'react';
-import { ThemeSwitcher } from 'widgets/ThemeSwitcher';
-import { LangSwitcher } from 'widgets/LangSwitcher';
+import { ThemeSwitcher } from 'shared/ui/ThemeSwitcher';
+import { LangSwitcher } from 'shared/ui/LangSwitcher/LangSwitcher';
 import { Button, ButtonSize, ButtonTheme } from 'shared/ui/Button/Button';
 import { useTranslation } from 'react-i18next';
 import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
@@ -14,7 +14,7 @@ interface SidebarProps {
     className?: string;
 }
 
-const Sidebar = ({ className }: SidebarProps) => {
+export const Sidebar = ({ className }: SidebarProps) => {
     const [collapsed, setCollapsed] = useState(false);
     const { t } = useTranslation();
 
@@ -69,5 +69,3 @@ const Sidebar = ({ className }: SidebarProps) => {
         </div>
     );
 };
-
-export { Sidebar };

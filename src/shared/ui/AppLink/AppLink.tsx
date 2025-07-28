@@ -6,19 +6,19 @@ import cls from './AppLink.module.scss';
 export enum AppLinkTheme {
     PRIMARY = 'primary',
     SECONDARY = 'secondary',
-    RED = 'red'
+    RED = 'red',
 }
 
-interface IAppLinkProps extends LinkProps {
+interface AppLinkProps extends LinkProps {
     className?: string;
-    theme?: AppLinkTheme,
+    theme?: AppLinkTheme;
 }
 
-const AppLink: FC<IAppLinkProps> = (props) => {
+export const AppLink: FC<AppLinkProps> = (props) => {
     const {
         to,
-        children,
         className,
+        children,
         theme = AppLinkTheme.PRIMARY,
         ...otherProps
     } = props;
@@ -26,12 +26,10 @@ const AppLink: FC<IAppLinkProps> = (props) => {
     return (
         <Link
             to={to}
-            className={classNames(cls.AppLink, {}, [className, cls[theme]])}
+            className={classNames(cls.AppLink, { [cls[theme]]: true }, [className])}
             {...otherProps}
         >
             {children}
         </Link>
     );
 };
-
-export { AppLink };
